@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        mavenCentral()
+    }
+    plugins {
+        // The SC4J version: sc4jVersion in gradle.properties.
+        id 'org.fogofwarlabs.sc4j.mod' version "${sc4jVersion}"
+    }
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+}
+
+rootProject.name = 'my-mod'

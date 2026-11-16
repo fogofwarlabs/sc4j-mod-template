@@ -1,0 +1,4 @@
+plugins {
+    // The version is sc4jVersion of gradle.properties (settings.gradle).
+    id 'org.fogofwarlabs.sc4j.mod'
+}
