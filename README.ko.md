@@ -27,7 +27,7 @@
 | `settings.gradle` | Maven Central, 플러그인 버전, 프로젝트 이름 |
 | `gradle.properties` | 모드 버전 `version`, SC4J 버전 `sc4jVersion`, 설치본 `sc4j.install` |
 | `.github/workflows/ci.yml` | 푸시와 풀 리퀘스트마다 빌드와 헤드리스 실행 |
-| `.github/workflows/release.yml` | 태그 `v<version>`마다 jar와 체크섬을 담은 GitHub 릴리스 |
+| `.github/workflows/release.yml` | 태그 `v<version>`마다 jar와 체크섬을 담은 GitHub 릴리즈 |
 
 ## 내 모드로 만들기
 
@@ -53,12 +53,12 @@ JDK 25가 필요하며, Gradle 래퍼가 Gradle을 받아 옵니다. 명령은 P
 | `.\gradlew.bat run --args=--headless` | 헤드리스 러너 실행. 종료 코드 0으로 끝남 |
 | `.\gradlew.bat installMod -Psc4j.install=<install>` | jar를 `<install>/mods/`에 복사 |
 
-설치본은 [SC4J 릴리스](https://github.com/fogofwarlabs/sc4j/releases)의 `SC4J-<version>.zip`을 푼 폴더입니다. 그 폴더에서 `SC4J.exe --list`는 모드를 `READY`로 보여 주고, 런처가 모드를 시작합니다. `gradle.properties`의 `sc4j.install=<install>`(Windows 경로는 슬래시로)은 `-Psc4j.install`을 대신하며, 이때 `run`은 설치본의 사용자 데이터를, 없으면 `build/sc4j-run/`을 씁니다.
+설치본은 [SC4J 릴리즈](https://github.com/fogofwarlabs/sc4j/releases)의 `SC4J-<version>.zip`을 푼 폴더입니다. 그 폴더에서 `SC4J.exe --list`는 모드를 `READY`로 보여 주고, 런처가 모드를 시작합니다. `gradle.properties`의 `sc4j.install=<install>`(Windows 경로는 슬래시로)은 `-Psc4j.install`을 대신하며, 이때 `run`은 설치본의 사용자 데이터를, 없으면 `build/sc4j-run/`을 씁니다.
 
-## 릴리스
+## 릴리즈
 
 1. `gradle.properties`의 `version`을 정하고 커밋합니다.
-2. 태그 `v<version>`을 push합니다(`git tag v1.0.0`, `git push origin v1.0.0`). 워크플로 `release.yml`이 jar를 빌드하고 `<id>.jar`와 `<id>.jar.sha256`을 담은 GitHub 릴리스를 만듭니다. 플레이어는 런처에서 저장소 이름 `owner/name`으로 최신 릴리스를 설치합니다.
+2. 태그 `v<version>`을 push합니다(`git tag v1.0.0`, `git push origin v1.0.0`). 워크플로 `release.yml`이 jar를 빌드하고 `<id>.jar`와 `<id>.jar.sha256`을 담은 GitHub 릴리즈를 만듭니다. 플레이어는 런처에서 저장소 이름 `owner/name`으로 최신 릴리즈를 설치합니다.
 3. 런처의 모드 목록에 올리려면 [`fogofwarlabs/sc4j-mods`](https://github.com/fogofwarlabs/sc4j-mods)에 `mods.json`에 `{"name": "...", "repository": "owner/name", "description": "..."}`를 추가하는 풀 리퀘스트를 엽니다.
 
 ## 문서
